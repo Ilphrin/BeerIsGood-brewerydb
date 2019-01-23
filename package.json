@@ -1,0 +1,22 @@
+{
+  "name": "beerisgood-brewerydb",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ilphrin/BeerIsGood-brewerydb.git"
+  },
+  "author": "Kevin Ilphrin Pellet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ilphrin/BeerIsGood-brewerydb/issues"
+  },
+  "homepage": "https://github.com/Ilphrin/BeerIsGood-brewerydb#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
