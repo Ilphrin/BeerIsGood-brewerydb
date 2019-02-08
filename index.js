@@ -6,6 +6,21 @@ const app       = require('./src/express');
 const mongo     = require('./src/mongo');
 mongo.startConnection();
 
+function prepareDatabase(res) {
+  mongo.drop();
+  requestNextBeerPage(1).then(() => {
+    if (res) {
+      res.send({
+        status: "Request succeeded! checkout the database",
+      });
+    }
+  }).catch(err => {
+    if (res) {
+      res.send(err);
+    }
+  });
+}
+
 app.get('/', res => {
   res.send({
     "HELLO": "WORLD",
@@ -61,14 +76,8 @@ function requestNextBeerPage(page) {
 }
 
 app.get('/beers', res => {
-  mongo.drop();
-  requestNextBeerPage(1).then(() => {
-    res.send({
-      status: "Request succeeded! checkout the database",
-    });
-  }).catch(err => {
-    res.send(err);
-  });
+  prepareDatabase(res);
 });
 
 app.listen();
+prepareDatabase();
