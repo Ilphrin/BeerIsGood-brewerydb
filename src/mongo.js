@@ -3,7 +3,7 @@ const config = require('../config/config.js');
 
 const beerSchema = new mongoose.Schema({
   id: String,                                                 // id
-  name: String,                                               // name
+  name: { type: String, text: true },                                               // name
   alcohol: { type: Number, default: 0.0, required: false },   // abv
   image: { type: String, default: "", required: false },      // labels.large
   type: { type: String, default: "", required: false },       // style.category.name
