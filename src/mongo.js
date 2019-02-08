@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const config = require('../config/config.js');
 
 const beerSchema = new mongoose.Schema({
   id: String,                                                 // id
@@ -12,7 +13,7 @@ const beerSchema = new mongoose.Schema({
 const BeerModel = mongoose.model('beers', beerSchema);
 
 function startConnection() {
-  mongoose.connect('mongodb://localhost/beers', { useNewUrlParser: true }, err => {
+  mongoose.connect(config.heroku.mongo, { useNewUrlParser: true }, err => {
     if (err) {
       throw err;
     }
